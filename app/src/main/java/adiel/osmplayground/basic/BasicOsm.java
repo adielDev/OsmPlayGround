@@ -8,6 +8,7 @@ import android.location.LocationManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Switch;
@@ -43,7 +44,16 @@ public class BasicOsm extends AppCompatActivity implements View.OnClickListener 
 
         goToMyLOcation();
         setGesture();
+        map.setMultiTouchControls(true);
+        mapController.setZoom(zoom);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, GPSConfig.MIN_TIME, GPSConfig.MIN_DISTANCE, this);
     }
 
     private void setGesture() {
@@ -109,6 +119,7 @@ public class BasicOsm extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onLocationChanged(Location location) {
         myLocation =location;
+        Log.d("adiel","location:"+location.toString());
 
     }
 

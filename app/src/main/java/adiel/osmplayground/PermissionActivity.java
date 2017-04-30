@@ -22,9 +22,10 @@ public class PermissionActivity extends AppCompatActivity {
         }else {
             Log.d("temp","no permission");
             Toast.makeText(this, "no permission !!", Toast.LENGTH_SHORT).show();
-            String[] strings = new String[2];
+            String[] strings = new String[3];
             strings[0] = Manifest.permission.WRITE_EXTERNAL_STORAGE;
             strings[1] = Manifest.permission.ACCESS_COARSE_LOCATION;
+            strings[2] = Manifest.permission.ACCESS_FINE_LOCATION;
 
             ActivityCompat.requestPermissions(this,strings,100);
         }

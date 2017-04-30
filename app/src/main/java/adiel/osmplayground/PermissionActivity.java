@@ -15,7 +15,7 @@ public class PermissionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if ( ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                && ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "good permission !!", Toast.LENGTH_SHORT).show();
             startActivityMain();
 
@@ -24,7 +24,7 @@ public class PermissionActivity extends AppCompatActivity {
             Toast.makeText(this, "no permission !!", Toast.LENGTH_SHORT).show();
             String[] strings = new String[2];
             strings[0] = Manifest.permission.WRITE_EXTERNAL_STORAGE;
-            strings[1] = Manifest.permission.READ_EXTERNAL_STORAGE;
+            strings[1] = Manifest.permission.ACCESS_COARSE_LOCATION;
 
             ActivityCompat.requestPermissions(this,strings,100);
         }

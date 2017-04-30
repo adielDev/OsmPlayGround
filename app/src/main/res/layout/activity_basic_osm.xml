@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     tools:context="adiel.osmplayground.basic.BasicOsm">
 
+
+
     <org.osmdroid.views.MapView
         android:id="@+id/fragment_record_map_mv"
         android:layout_width="match_parent"
@@ -19,5 +21,22 @@
         android:background="?attr/selectableItemBackground"
         android:padding="10dp"
         android:src="@drawable/icon_map_gotomylocation"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:onClick="zoomIn"
+            android:text=" + "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:onClick="zoomOut"
+            android:text=" - "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </FrameLayout>

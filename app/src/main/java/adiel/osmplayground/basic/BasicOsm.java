@@ -31,6 +31,7 @@ public class BasicOsm extends AppCompatActivity implements View.OnClickListener 
     Location myLocation;
     LocationManager locationManager = null;
     IMapController mapController;
+    int zoom = 25;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,5 +125,15 @@ public class BasicOsm extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onProviderDisabled(String provider) {
 
+    }
+
+    public void zoomIn(View view) {
+        zoom++;
+        mapController.setZoom(zoom);
+    }
+
+    public void zoomOut(View view) {
+        zoom--;
+        mapController.setZoom(zoom);
     }
 }

@@ -1,6 +1,7 @@
 package adiel.osmplayground.basic;
 
 import android.content.Context;
+import android.graphics.PointF;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -40,6 +41,23 @@ public class BasicOsm extends AppCompatActivity implements View.OnClickListener 
         setUpMap();
 
         goToMyLOcation();
+        setGesture();
+
+    }
+
+    private void setGesture() {
+        RotationGestureDetector mRotationGestureDetector = new RotationGestureDetector(new RotationGestureDetector.OnRotationGestureListener() {
+            @Override
+            public void OnRotation(float angle, PointF anchor) {
+                map.setMapOrientation(map.getMapOrientation() + angle);
+            }
+            @Override
+            public void OnRotationEnd() {
+                //if(usersOverlay != null)
+                //usersOverlay.onRotate();
+            }
+        }, getApplicationContext());
+        map.getOverlays().add(mRotationGestureDetector);
     }
 
     private void setUpMap(){
